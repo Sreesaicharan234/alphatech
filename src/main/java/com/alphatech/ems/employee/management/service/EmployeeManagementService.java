@@ -56,9 +56,9 @@ public class EmployeeManagementService {
 
         updateEmployee.setFirstName(employeeDetails.getFirstName());
         updateEmployee.setLastName(employeeDetails.getLastName());
-        updateEmployee.setEmailId(employeeDetails.getEmailId());
-        updateEmployee.setEmailId(employeeDetails.getDepartment());
-        updateEmployee.setEmailId(employeeDetails.getStatus());
+//        updateEmployee.setEmailId(employeeDetails.getEmailId());
+//        updateEmployee.setEmailId(employeeDetails.getDepartment());
+//        updateEmployee.setEmailId(employeeDetails.getStatus());
 
         employeeManagementRepository.save(updateEmployee);
 

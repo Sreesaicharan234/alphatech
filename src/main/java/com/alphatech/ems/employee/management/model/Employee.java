@@ -9,24 +9,41 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "smart-hr-employee")
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "first_Name")
+    @Column(name = "firstName")
     private String firstName;
 
-    @Column(name = "last_Name")
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "email_id")
-    private String emailId;
+    @Column(name = "dateOfBirth")
+    private String dateOfBirth;
+
+    @Column(name = "gender")
+    private String gender;
 
     @Column(name = "department")
     private String department;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "position")
+    private String position;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "foreign_key_address_id")
+    private Address address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "foreign_key_employment_id")
+    private Employment employment;
 }
