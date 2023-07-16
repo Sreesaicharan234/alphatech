@@ -39,11 +39,4 @@ public class Employee {
     @Column(name = "phone")
     private String phone;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "foreign_key_address_id")
-//    private Address address;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "foreign_key_employment_id")
-//    private Employment employment;
 }
