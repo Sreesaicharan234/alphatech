@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "employee_info")
 public class EmployeeInfo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,4 +28,36 @@ public class EmployeeInfo {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "foreign_key_employment_id")
     private Employment employment;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Employment getEmployment() {
+        return employment;
+    }
+
+    public void setEmployment(Employment employment) {
+        this.employment = employment;
+    }
 }

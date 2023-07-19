@@ -3,10 +3,7 @@ package com.alphatech.ems.employee.management.repository;
 import com.alphatech.ems.employee.management.model.Employee;
 import com.alphatech.ems.employee.management.model.EmployeeInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
+public interface EmployeeInfoManagementRepository extends JpaRepository<EmployeeInfo,Long> {
 
-@Repository
-public interface EmployeeManagementRepository extends JpaRepository<Employee, Long> {
-    Employee findByFirstName(String firstName);
 }
