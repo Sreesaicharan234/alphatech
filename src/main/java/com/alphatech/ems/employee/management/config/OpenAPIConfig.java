@@ -25,7 +25,7 @@ public class OpenAPIConfig {
         .title("Employee Management API")
         .version("1.0")
         .contact(contact)
-        .description("This API exposes endpoints to manage books.").termsOfService("")
+        .description("This API exposes endpoints to manage Employees.").termsOfService("")
         .license(mitLicense);
     return new OpenAPI().info(info);
   }
