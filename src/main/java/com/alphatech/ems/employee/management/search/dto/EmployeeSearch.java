@@ -5,7 +5,7 @@
 * Created With: IntelliJ IDEA Community Edition
 */
 
-package com.alphatech.ems.employee.management.model;
+package com.alphatech.ems.employee.management.search.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeSearch {
-    private String name;
+
+    private String firstName;
+
+    private String lastName;
 
     private String dateOfBirth;
 
