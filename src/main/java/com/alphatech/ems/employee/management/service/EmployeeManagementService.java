@@ -22,6 +22,7 @@ public class EmployeeManagementService {
     }
 
     public EmployeeInfo createEmployeeInfo(EmployeeInfo employeeInfoRequest) {
+
         Employee employee = employeeInfoRequest.getEmployee();
         Address address = employeeInfoRequest.getAddress();
         Employment employment = employeeInfoRequest.getEmployment();
