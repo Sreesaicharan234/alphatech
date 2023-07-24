@@ -23,6 +23,10 @@ public class EmployeeSearchService {
         this.employeeManagementRepository = employeeManagementRepository;
     }
 
+    public void t() {
+        throw new RuntimeException("");
+    }
+
     public List<Employee> search(EmployeeSearch employeeSearch) {
         String firstName = employeeSearch.getFirstName();
         String lastName = employeeSearch.getLastName();

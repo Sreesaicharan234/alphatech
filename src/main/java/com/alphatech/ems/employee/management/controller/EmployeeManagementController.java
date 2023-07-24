@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/employee")
 @Api(value = "Employee Management", tags = "Employee Management")
+@Slf4j
 public class EmployeeManagementController {
 
     private  final EmployeeManagementService employeeManagementService;
@@ -32,6 +34,7 @@ public class EmployeeManagementController {
     })
     @PostMapping
     public ResponseEntity<EmployeeInfo> createEmployeeInfo(@RequestBody EmployeeInfo employeeInfo) {
+        log.info("Entered EmployeeManagementController.createEmployeeInfo()");
         return new ResponseEntity<>(employeeManagementService.createEmployeeInfo(employeeInfo), HttpStatus.CREATED);
     }
 
