@@ -10,16 +10,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "employee_info")
-public class EmployeeInfo {
+public class EmployeeInfo extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "foreign_key_employee_id")
     private Employee employee;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "foreign_key_address_id")
@@ -29,35 +28,5 @@ public class EmployeeInfo {
     @JoinColumn(name = "foreign_key_employment_id")
     private Employment employment;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Employment getEmployment() {
-        return employment;
-    }
-
-    public void setEmployment(Employment employment) {
-        this.employment = employment;
-    }
 }
