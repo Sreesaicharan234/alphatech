@@ -10,11 +10,13 @@ package com.alphatech.ems.employee.management.service;
 import com.alphatech.ems.employee.management.model.Employee;
 import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
 import com.alphatech.ems.employee.management.repository.EmployeeManagementRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class EmployeeSearchService {
 
     private final EmployeeManagementRepository employeeManagementRepository;
@@ -28,6 +30,7 @@ public class EmployeeSearchService {
     }
 
     public List<Employee> search(EmployeeSearch employeeSearch) {
+        log.info("entered EmployeeSearchService.search()"+employeeSearch);
         String firstName = employeeSearch.getFirstName();
         String lastName = employeeSearch.getLastName();
         String dateOfBirth = employeeSearch.getDateOfBirth();

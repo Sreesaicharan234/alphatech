@@ -4,9 +4,11 @@ import com.alphatech.ems.employee.management.repository.AddressManagementReposit
 import com.alphatech.ems.employee.management.repository.EmployeeInfoManagementRepository;
 import com.alphatech.ems.employee.management.repository.EmployeeManagementRepository;
 import com.alphatech.ems.employee.management.repository.EmploymentRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class EmployeeManagementService {
 
     private final EmployeeManagementRepository employeeManagementRepository;
@@ -23,6 +25,7 @@ public class EmployeeManagementService {
 
     public EmployeeInfo createEmployeeInfo(EmployeeInfo employeeInfoRequest) {
 
+        log.info("entered EmployeeManagementService.createEmployeeInfo(); "+employeeInfoRequest);
         Employee employee = employeeInfoRequest.getEmployee();
         Address address = employeeInfoRequest.getAddress();
         Employment employment = employeeInfoRequest.getEmployment();
