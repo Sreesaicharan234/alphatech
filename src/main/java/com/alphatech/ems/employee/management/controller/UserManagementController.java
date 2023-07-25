@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @Slf4j
 public class UserManagementController {
+
     private final UserManagementService userManagementService;
 
     public UserManagementController(UserManagementService userManagementService) {

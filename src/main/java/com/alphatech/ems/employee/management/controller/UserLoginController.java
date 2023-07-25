@@ -15,28 +15,25 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @Slf4j
 public class UserLoginController {
+
     private final UserLoginService userLoginService;
     private final TokenGenerator tokenGenerator; // Initialize the TokenGenerator
-
     private final UserManagementService userManagementService;
 
-    public UserLoginController(UserLoginService userLoginService, TokenGenerator tokenGenerator, UserManagementService userManagementService) {
+    public UserLoginController(UserLoginService userLoginService, TokenGenerator tokenGenerator,
+                               UserManagementService userManagementService) {
         this.userLoginService = userLoginService;
-        this.tokenGenerator = tokenGenerator; // Initialize the TokenGenerator
+        this.tokenGenerator = tokenGenerator;
         this.userManagementService = userManagementService;
     }
 
-
     @PostMapping("/login")
-    public ResponseEntity<?> loginCheck(@RequestBody User user){
-
-        User result=userLoginService.loginCheck(user);
-
-        if(result!=null){
+    public ResponseEntity<?> login(@RequestBody User user){
+        User result = userLoginService.loginCheck(user);
+        if(result != null){
             return new ResponseEntity<>(tokenGenerator.generateToken(result), HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity<>("Authentication failed", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Authentication failed. Please provide valid credentials", HttpStatus.UNAUTHORIZED);
         }
     }
 }

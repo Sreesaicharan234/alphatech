@@ -15,8 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 @Service
 public class TokenGenerator {
+
     public static Map<String, String> generateToken(User user) {
 
         Map<String,String> result = new HashMap<String,String>();

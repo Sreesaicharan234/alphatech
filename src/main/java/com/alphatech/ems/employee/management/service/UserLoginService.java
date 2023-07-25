@@ -14,21 +14,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserLoginService {
+
     @Autowired
     private UserManagementRepository userManagementRepository;
-    public User loginCheck(User user) {
-        if(userManagementRepository.findByUserName(user.getUserName()) != null){
 
-            User result = userManagementRepository.findByUserName(user.getUserName());
-            if (result.getPassword().equals(user.getPassword()))
-            {
-                return result;
-            }
-            else{
-                return null;
-            }
-        }
-        else{
+    public User loginCheck(User user) {
+        User result = userManagementRepository.findByUserName(user.getUserName());
+        if (result != null && result.getPassword().equals(user.getPassword())) {
+            return result;
+        } else {
             return null;
         }
     }

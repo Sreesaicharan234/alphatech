@@ -19,6 +19,7 @@ import java.util.Map;
 
 @Service
 public class UserManagementService {
+
     @Autowired
     private UserManagementRepository userManagementRepository;
 
