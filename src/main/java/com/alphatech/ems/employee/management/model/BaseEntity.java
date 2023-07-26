@@ -28,4 +28,6 @@ public abstract class BaseEntity {
     @Version
     private Integer version;
 
+    private Boolean isActive;
+
 }
