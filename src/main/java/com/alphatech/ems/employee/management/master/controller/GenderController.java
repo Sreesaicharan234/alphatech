@@ -1,7 +1,7 @@
 package com.alphatech.ems.employee.management.master.controller;
 
 import com.alphatech.ems.employee.management.master.service.GenderService;
-import com.alphatech.ems.employee.management.model.master.Gender;
+import com.alphatech.ems.employee.management.master.model.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

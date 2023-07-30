@@ -1,4 +1,4 @@
-package com.alphatech.ems.employee.management.model.master;
+package com.alphatech.ems.employee.management.master.model;
 
 
 import com.alphatech.ems.employee.management.model.BaseEntity;

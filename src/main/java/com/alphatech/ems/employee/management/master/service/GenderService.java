@@ -1,12 +1,11 @@
 package com.alphatech.ems.employee.management.master.service;
 
 import com.alphatech.ems.employee.management.master.repository.GenderRepository;
-import com.alphatech.ems.employee.management.model.master.Gender;
+import com.alphatech.ems.employee.management.master.model.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GenderService {
