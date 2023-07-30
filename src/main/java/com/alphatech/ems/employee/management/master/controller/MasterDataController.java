@@ -26,8 +26,6 @@ public class MasterDataController {
         this.empStatusService = empStatusService;
     }
 
-
-
     @GetMapping
     @ApiOperation(value = "Get all Employee Statuses")
     public ResponseEntity<MasterDataResponse> getAllEmpStatuses() {
