@@ -1,16 +1,10 @@
-/*
-/*
-* Author Name: K.Sree Sai Charan
-* Date: 25-07-2023
-* Created With: IntelliJ IDEA Community Edition
-*/
-
 package com.alphatech.ems.employee.management.service;
 
 import com.alphatech.ems.employee.management.model.User;
 import com.alphatech.ems.employee.management.repository.UserManagementRepository;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Jwts;
 import java.util.Date;
@@ -23,7 +17,12 @@ public class UserManagementService {
     @Autowired
     private UserManagementRepository userManagementRepository;
 
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public User saveUser(User user) {
+//        String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+//        user.setPassword(encryptedPassword);
         return userManagementRepository.save(user);
     }
 

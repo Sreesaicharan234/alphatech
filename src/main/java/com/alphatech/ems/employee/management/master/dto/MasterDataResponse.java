@@ -1,5 +1,6 @@
 package com.alphatech.ems.employee.management.master.dto;
 
+import com.alphatech.ems.employee.management.master.model.Department;
 import com.alphatech.ems.employee.management.master.model.EmpStatus;
 import com.alphatech.ems.employee.management.master.model.Gender;
 import lombok.AllArgsConstructor;
@@ -16,4 +17,5 @@ import java.util.List;
 public class MasterDataResponse {
     List<Gender> genderList;
     List<EmpStatus> empStatuses;
+    List<Department> departments;
 }

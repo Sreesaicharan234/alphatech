@@ -1,6 +1,7 @@
 package com.alphatech.ems.employee.management.repository;
 
 import com.alphatech.ems.employee.management.model.Employee;
+import com.alphatech.ems.employee.management.model.EmployeeInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,14 +21,14 @@ public interface EmployeeManagementRepository extends JpaRepository<Employee, Lo
           "AND (:position IS NULL OR e.position = :position)"+
           "AND (:email IS NULL OR e.email = :email)"+
           "AND (:phone IS NULL OR e.phone = :phone)")
-  List<Employee> search(@Param("firstName") String firstName,
-                                  @Param("lastName") String lastName,
-                                  @Param("dateOfBirth") String dateOfBirth,
-                                  @Param("gender") String gender,
-                                  @Param("department") String department,
-                                  @Param("position") String position,
-                                  @Param("email") String email,
-                                  @Param("phone") String phone);
+  List<EmployeeInfo> search(@Param("firstName") String firstName,
+                            @Param("lastName") String lastName,
+                            @Param("dateOfBirth") String dateOfBirth,
+                            @Param("gender") String gender,
+                            @Param("department") String department,
+                            @Param("position") String position,
+                            @Param("email") String email,
+                            @Param("phone") String phone);
 
 
 

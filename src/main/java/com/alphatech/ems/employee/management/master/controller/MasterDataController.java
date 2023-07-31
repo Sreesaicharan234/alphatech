@@ -1,6 +1,7 @@
 package com.alphatech.ems.employee.management.master.controller;
 
 import com.alphatech.ems.employee.management.master.dto.MasterDataResponse;
+import com.alphatech.ems.employee.management.master.service.DepartmentService;
 import com.alphatech.ems.employee.management.master.service.EmpStatusService;
 import com.alphatech.ems.employee.management.master.service.GenderService;
 import io.swagger.annotations.Api;
@@ -20,10 +21,13 @@ public class MasterDataController {
 
     private final EmpStatusService empStatusService;
 
+    private final DepartmentService departmentService;
+
     @Autowired
-    public MasterDataController(GenderService genderService, EmpStatusService empStatusService) {
+    public MasterDataController(GenderService genderService, EmpStatusService empStatusService, DepartmentService departmentService) {
         this.genderService = genderService;
         this.empStatusService = empStatusService;
+        this.departmentService = departmentService;
     }
 
     @GetMapping
@@ -32,6 +36,7 @@ public class MasterDataController {
         MasterDataResponse masterDataResponse = new MasterDataResponse();
         masterDataResponse.setEmpStatuses(empStatusService.getAllEmpStatuses());
         masterDataResponse.setGenderList(genderService.getAllGenders());
+        masterDataResponse.setDepartments(departmentService.getAllDepartments());
         return ResponseEntity.ok(masterDataResponse);
     }
 

@@ -5,7 +5,10 @@ import com.alphatech.ems.employee.management.repository.EmployeeInfoManagementRe
 import com.alphatech.ems.employee.management.repository.EmployeeManagementRepository;
 import com.alphatech.ems.employee.management.repository.EmploymentRepository;
 import lombok.extern.slf4j.Slf4j;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -21,6 +24,7 @@ public class EmployeeManagementService {
         this.employeeInfoManagementRepository = employeeInfoManagementRepository;
         this.addressManagement = addressManagement;
         this.employementRepository = employementRepository;
+
     }
 
     public EmployeeInfo createEmployeeInfo(EmployeeInfo employeeInfoRequest) {
@@ -33,11 +37,15 @@ public class EmployeeManagementService {
         employeeInfo.setEmployee(employee);
         employeeInfo.setAddress(address);
         employeeInfo.setEmployment(employment);
+        User user =new User();
+        user.setUserName(employee.getFirstName());
+        String randomValue = UUID.randomUUID().toString();
+        user.setPassword(randomValue);
+        employeeInfo.setUser(user);
         return employeeInfoManagementRepository.save(employeeInfo);
     }
 
-    //check2
-    //check3
+
 
 }
 

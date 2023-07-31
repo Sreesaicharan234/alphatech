@@ -8,6 +8,7 @@
 package com.alphatech.ems.employee.management.controller;
 
 import com.alphatech.ems.employee.management.model.Employee;
+import com.alphatech.ems.employee.management.model.EmployeeInfo;
 import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
 import com.alphatech.ems.employee.management.service.EmployeeSearchService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class EmployeeSearchController {
     }
 
     @PostMapping("/search")
-    public ResponseEntity<List<Employee>> search(@RequestBody EmployeeSearch employeeSearch) {
+    public ResponseEntity<List<EmployeeInfo>> search(@RequestBody EmployeeSearch employeeSearch) {
         log.info("entered EmployeeSearchController.search()"+employeeSearch);
         return new ResponseEntity<>(employeeSearchService.search(employeeSearch), HttpStatus.OK);
     }

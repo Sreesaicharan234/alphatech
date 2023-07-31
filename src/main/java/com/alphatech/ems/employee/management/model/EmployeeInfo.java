@@ -28,5 +28,8 @@ public class EmployeeInfo extends BaseEntity {
     @JoinColumn(name = "foreign_key_employment_id")
     private Employment employment;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "foreign_key_user_id")
+    private User user;
 
 }

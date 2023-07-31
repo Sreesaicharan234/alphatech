@@ -8,6 +8,7 @@
 package com.alphatech.ems.employee.management.service;
 
 import com.alphatech.ems.employee.management.model.Employee;
+import com.alphatech.ems.employee.management.model.EmployeeInfo;
 import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
 import com.alphatech.ems.employee.management.repository.EmployeeManagementRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class EmployeeSearchService {
         throw new RuntimeException("");
     }
 
-    public List<Employee> search(EmployeeSearch employeeSearch) {
+    public List<EmployeeInfo> search(EmployeeSearch employeeSearch) {
         log.info("entered EmployeeSearchService.search()"+employeeSearch);
         String firstName = employeeSearch.getFirstName();
         String lastName = employeeSearch.getLastName();
