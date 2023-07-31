@@ -4,6 +4,7 @@ import com.alphatech.ems.employee.management.master.dto.MasterDataResponse;
 import com.alphatech.ems.employee.management.master.service.DepartmentService;
 import com.alphatech.ems.employee.management.master.service.EmpStatusService;
 import com.alphatech.ems.employee.management.master.service.GenderService;
+import com.alphatech.ems.employee.management.master.service.PositionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,14 @@ public class MasterDataController {
 
     private final DepartmentService departmentService;
 
+    private final PositionService positionService;
+
     @Autowired
-    public MasterDataController(GenderService genderService, EmpStatusService empStatusService, DepartmentService departmentService) {
+    public MasterDataController(GenderService genderService, EmpStatusService empStatusService, DepartmentService departmentService, PositionService positionService) {
         this.genderService = genderService;
         this.empStatusService = empStatusService;
         this.departmentService = departmentService;
+        this.positionService = positionService;
     }
 
     @GetMapping
@@ -37,6 +41,7 @@ public class MasterDataController {
         masterDataResponse.setEmpStatuses(empStatusService.getAllEmpStatuses());
         masterDataResponse.setGenderList(genderService.getAllGenders());
         masterDataResponse.setDepartments(departmentService.getAllDepartments());
+        masterDataResponse.setPositions(positionService.getAllPositions());
         return ResponseEntity.ok(masterDataResponse);
     }
 

@@ -3,6 +3,7 @@ package com.alphatech.ems.employee.management.master.dto;
 import com.alphatech.ems.employee.management.master.model.Department;
 import com.alphatech.ems.employee.management.master.model.EmpStatus;
 import com.alphatech.ems.employee.management.master.model.Gender;
+import com.alphatech.ems.employee.management.master.model.Position;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,5 @@ public class MasterDataResponse {
     List<Gender> genderList;
     List<EmpStatus> empStatuses;
     List<Department> departments;
+    List<Position> positions;
 }
