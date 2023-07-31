@@ -13,6 +13,9 @@ import com.alphatech.ems.employee.management.userDto.UserLoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 @Service
 public class UserLoginService {
 
@@ -20,8 +23,10 @@ public class UserLoginService {
     private UserManagementRepository userManagementRepository;
 
     public User loginCheck(UserLoginDto userLoginDto) {
+        byte[] encodedBytes = Base64.getEncoder().encode(userLoginDto.getPassword().getBytes(StandardCharsets.UTF_8));
+        String encodedPassword = new String(encodedBytes, StandardCharsets.UTF_8);
         User result = userManagementRepository.findByUserName(userLoginDto.getUserName());
-        if (result != null && result.getPassword().equals(userLoginDto.getPassword())) {
+        if (result != null && result.getPassword().equals(encodedPassword) ){
             return result;
         } else {
             return null;

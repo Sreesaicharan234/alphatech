@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Jwts;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,13 +20,14 @@ public class UserManagementService {
     @Autowired
     private UserManagementRepository userManagementRepository;
 
-//    @Autowired
-//    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser(User user) {
-//        String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
-//        user.setPassword(encryptedPassword);
-        return userManagementRepository.save(user);
+        byte[] encodedBytes = Base64.getEncoder().encode(user.getPassword().getBytes(StandardCharsets.UTF_8));
+        String encodedPassword = new String(encodedBytes, StandardCharsets.UTF_8);
+        User user2 = new User();
+        user2.setUserName(user.getUserName());
+        user2.setPassword(encodedPassword);
+        return userManagementRepository.save(user2);
     }
 
     public static Map<String, String> generateToken(User user) {
