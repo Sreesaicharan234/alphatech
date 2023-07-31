@@ -1,13 +1,5 @@
-/*
-/*
-* Author Name: K.Sree Sai Charan
-* Date: 21-07-2023
-* Created With: IntelliJ IDEA Community Edition
-*/
-
 package com.alphatech.ems.employee.management.controller;
 
-import com.alphatech.ems.employee.management.model.Employee;
 import com.alphatech.ems.employee.management.model.EmployeeInfo;
 import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
 import com.alphatech.ems.employee.management.service.EmployeeSearchService;
@@ -34,7 +26,8 @@ public class EmployeeSearchController {
 
     @PostMapping("/search")
     public ResponseEntity<List<EmployeeInfo>> search(@RequestBody EmployeeSearch employeeSearch) {
-        log.info("entered EmployeeSearchController.search()"+employeeSearch);
-        return new ResponseEntity<>(employeeSearchService.search(employeeSearch), HttpStatus.OK);
+        log.info("entered EmployeeSearchController.search()" + employeeSearch);
+        List<EmployeeInfo> searchResult = employeeSearchService.searchEmployeeInfo(employeeSearch);
+        return new ResponseEntity<>(searchResult, HttpStatus.OK);
     }
 }

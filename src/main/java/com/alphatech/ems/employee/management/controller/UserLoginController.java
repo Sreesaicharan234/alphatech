@@ -5,6 +5,7 @@ import com.alphatech.ems.employee.management.model.User;
 import com.alphatech.ems.employee.management.service.TokenGenerator;
 import com.alphatech.ems.employee.management.service.UserLoginService;
 import com.alphatech.ems.employee.management.service.UserManagementService;
+import com.alphatech.ems.employee.management.userDto.UserLoginDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class UserLoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user){
-        User result = userLoginService.loginCheck(user);
+    public ResponseEntity<?> login(@RequestBody UserLoginDto userLoginDto){
+        User result = userLoginService.loginCheck(userLoginDto);
         if(result != null){
             return new ResponseEntity<>(tokenGenerator.generateToken(result), HttpStatus.OK);
         } else {

@@ -39,7 +39,7 @@ public class EmployeeManagementService {
         employeeInfo.setEmployment(employment);
         User user =new User();
         user.setUserName(employee.getFirstName());
-        String randomValue = UUID.randomUUID().toString();
+        String randomValue = UUID.randomUUID().toString().substring(0, 5);
         user.setPassword(randomValue);
         employeeInfo.setUser(user);
         return employeeInfoManagementRepository.save(employeeInfo);

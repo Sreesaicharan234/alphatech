@@ -1,10 +1,3 @@
-/*
-/*
-* Author Name: K.Sree Sai Charan
-* Date: 21-07-2023
-* Created With: IntelliJ IDEA Community Edition
-*/
-
 package com.alphatech.ems.employee.management.search.dto;
 
 import lombok.AllArgsConstructor;

@@ -1,37 +1,29 @@
-/*
-/*
-* Author Name: K.Sree Sai Charan
-* Date: 21-07-2023
-* Created With: IntelliJ IDEA Community Edition
-*/
 
 package com.alphatech.ems.employee.management.service;
 
-import com.alphatech.ems.employee.management.model.Employee;
-import com.alphatech.ems.employee.management.model.EmployeeInfo;
-import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
-import com.alphatech.ems.employee.management.repository.EmployeeManagementRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+        import com.alphatech.ems.employee.management.model.EmployeeInfo;
+        import com.alphatech.ems.employee.management.repository.EmployeeInfoManagementRepository;
+        import com.alphatech.ems.employee.management.search.dto.EmployeeSearch;
+        import lombok.extern.slf4j.Slf4j;
+        import org.springframework.stereotype.Service;
 
-import java.util.List;
+        import java.util.List;
 
 @Service
 @Slf4j
 public class EmployeeSearchService {
 
-    private final EmployeeManagementRepository employeeManagementRepository;
+    private final EmployeeInfoManagementRepository employeeInfoManagementRepository;
 
-    public EmployeeSearchService(EmployeeManagementRepository employeeManagementRepository) {
-        this.employeeManagementRepository = employeeManagementRepository;
+    public EmployeeSearchService(EmployeeInfoManagementRepository employeeInfoManagementRepository) {
+        this.employeeInfoManagementRepository = employeeInfoManagementRepository;
     }
-
     public void t() {
         throw new RuntimeException("");
     }
 
-    public List<EmployeeInfo> search(EmployeeSearch employeeSearch) {
-        log.info("entered EmployeeSearchService.search()"+employeeSearch);
+    public List<EmployeeInfo> searchEmployeeInfo(EmployeeSearch employeeSearch) {
+        log.info("entered EmployeeSearchService.searchEmployeeInfo()" + employeeSearch);
         String firstName = employeeSearch.getFirstName();
         String lastName = employeeSearch.getLastName();
         String dateOfBirth = employeeSearch.getDateOfBirth();
@@ -40,7 +32,6 @@ public class EmployeeSearchService {
         String position = employeeSearch.getPosition();
         String email = employeeSearch.getEmail();
         String phone = employeeSearch.getPhone();
-        return employeeManagementRepository.search(firstName, lastName,
-                dateOfBirth, gender, department, position,email,phone);
-    }
-}
+
+        return employeeInfoManagementRepository.search(firstName, lastName, dateOfBirth, gender, department, position, email, phone);
+    }}
