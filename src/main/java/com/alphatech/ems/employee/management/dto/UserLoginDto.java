@@ -1,5 +1,5 @@
 
-package com.alphatech.ems.employee.management.userDto;
+package com.alphatech.ems.employee.management.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

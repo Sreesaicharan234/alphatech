@@ -5,7 +5,7 @@ import com.alphatech.ems.employee.management.model.User;
 import com.alphatech.ems.employee.management.service.TokenGenerator;
 import com.alphatech.ems.employee.management.service.UserLoginService;
 import com.alphatech.ems.employee.management.service.UserManagementService;
-import com.alphatech.ems.employee.management.userDto.UserLoginDto;
+import com.alphatech.ems.employee.management.dto.UserLoginDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

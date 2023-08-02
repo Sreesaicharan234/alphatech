@@ -24,4 +24,13 @@ public class UserManagementController {
     public ResponseEntity<?> registerUser(@RequestBody User user){
         return new ResponseEntity<>(userManagementService.saveUser(user), HttpStatus.OK);
     }
+
+    @PutMapping("/{userName}/password")
+    public ResponseEntity<String> updatePasswordAndSetFirstLoginFalse(
+            @PathVariable String userName,
+            @RequestParam String newPassword
+    ) {
+        userManagementService.updatePasswordAndSetFirstLoginToFalse(userName, newPassword);
+        return ResponseEntity.ok("Password updated successfully");
+    }
 }

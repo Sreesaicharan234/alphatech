@@ -24,6 +24,9 @@ public class User extends BaseEntity {
     @Column(name = "password")
     String password;
 
+    @Column(name = "isFirstLogin", columnDefinition = "boolean default true")
+    private boolean isFirstLogin = true;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "foreign_key_employeeInfo_id")
     EmployeeInfo employeeInfo;

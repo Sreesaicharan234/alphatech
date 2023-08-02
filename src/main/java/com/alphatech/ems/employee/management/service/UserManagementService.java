@@ -1,5 +1,6 @@
 package com.alphatech.ems.employee.management.service;
 
+import com.alphatech.ems.employee.management.exception.ResourceNotFoundException;
 import com.alphatech.ems.employee.management.model.User;
 import com.alphatech.ems.employee.management.repository.UserManagementRepository;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -46,6 +47,15 @@ public class UserManagementService {
         result.put("userName",user.getUserName());
 
         return result;
+    }
+
+    public void updatePasswordAndSetFirstLoginToFalse(String userName, String newPassword) {
+        User user = userManagementRepository.findByUserName(userName);
+        byte[] encodedBytes = Base64.getEncoder().encode(user.getPassword().getBytes(StandardCharsets.UTF_8));
+        String encodedPassword = new String(encodedBytes, StandardCharsets.UTF_8);
+        user.setPassword(encodedPassword);
+        user.setFirstLogin(false);
+        userManagementRepository.save(user);
     }
 
 }

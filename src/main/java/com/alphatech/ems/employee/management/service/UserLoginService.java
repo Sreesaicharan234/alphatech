@@ -9,7 +9,7 @@ package com.alphatech.ems.employee.management.service;
 
 import com.alphatech.ems.employee.management.model.User;
 import com.alphatech.ems.employee.management.repository.UserManagementRepository;
-import com.alphatech.ems.employee.management.userDto.UserLoginDto;
+import com.alphatech.ems.employee.management.dto.UserLoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
